@@ -1,0 +1,46 @@
+2026-10-05 13:56:08 — INFO — __main__ — ================ Starting Data Processing Pipeline ================
+2026-10-05 13:56:08 — INFO — __main__ — Successfully loaded raw file 'Metro_Interstate_Traffic_Volume.csv'. Loaded 48204 rows and 9 columns.
+2026-10-05 13:56:08 — INFO — __main__ — Schema validation successful. All 9 expected columns present.
+2026-10-05 13:56:08 — WARNING — __main__ — Categorical Cleaning: Replaced 48143 missing values in 'holiday' column with 'None'.
+2026-10-05 13:56:08 — INFO — __main__ — Categorical Cleaning complete: Standardised text casing in 'weather_description' (reduced unique categories from 38 to 37).
+2026-10-05 13:56:09 — INFO — __main__ — Datetime Parsing complete: Column 'date_time' successfully formatted.
+2026-10-05 13:56:09 — WARNING — __main__ — Deduplication: Identified and removed 17 duplicate rows.
+2026-10-05 13:56:09 — WARNING — __main__ — Outlier Imputation: Replaced 4 invalid temperature rows (0 K) in month 1 with monthly median (266.83 K).
+2026-10-05 13:56:09 — WARNING — __main__ — Outlier Imputation: Replaced 6 invalid temperature rows (0 K) in month 2 with monthly median (266.51 K).
+2026-10-05 13:56:09 — WARNING — __main__ — Outlier Imputation: Replaced 1 extreme rainfall rows (>100mm) in month 7 with monthly median (0.00 mm).
+2026-10-05 13:56:09 — INFO — __main__ — Outlier Processing complete: All temperature and rainfall anomalies handled.
+2026-10-05 13:56:09 — INFO — __main__ — Pipeline Execution Completed Successfully. Cleaned dataset saved to 'cleaned_traffic_data.csv' with shape (48187, 9).
+2026-10-05 13:56:09 — INFO — __main__ — ==================================================================
+2026-10-05 14:04:25 — INFO — __main__ — ================ Starting Feature Engineering Phase ================
+2026-10-05 14:04:25 — INFO — __main__ — Dataset shape BEFORE feature engineering: 48187 rows x 9 columns
+2026-10-05 14:04:25 — DEBUG — __main__ — Engineered time features: hour, day_of_week, is_weekend, hour_sin, hour_cos, day_sin, day_cos.
+2026-10-05 14:04:25 — DEBUG — __main__ — Engineered weather features: One-hot encoded 11 weather types, is_precipitating, temp_celsius, is_freezing.
+2026-10-05 14:04:25 — DEBUG — __main__ — Min-Max Normalisation stats — temp range: [243.39, 310.07] K | clouds_all range: [0.00, 100.00]%
+2026-10-05 14:04:25 — DEBUG — __main__ — Intermediate Quantile Thresholds calculated for Congestion Categorisation — 33.3rd percentile (Low/Moderate cutoff): 2190.0 vehicles/hr | 66.6th percentile (Moderate/High cutoff): 4569.0 vehicles/hr
+2026-10-05 14:04:26 — INFO — __main__ — Dataset shape AFTER feature engineering: 48187 rows x 33 columns
+2026-10-05 14:04:26 — INFO — __main__ — Feature engineering completed successfully. Output saved to 'featured_traffic_data.csv'.
+2026-10-05 14:04:26 — INFO — __main__ — ==================================================================
+2026-10-05 14:20:35 — INFO — __main__ — ================== Starting Visualization Phase ==================
+2026-10-05 14:20:36 — INFO — __main__ — Successfully loaded featured dataset 'featured_traffic_data.csv' for visualization.
+2026-10-05 14:20:37 — INFO — __main__ — Successfully saved figure: 'figures\01_hourly_traffic_weekday_vs_weekend.png'
+2026-10-05 14:20:39 — INFO — __main__ — Successfully saved figure: 'figures\02_temperature_vs_traffic.png'
+2026-10-05 14:20:40 — INFO — __main__ — Successfully saved figure: 'figures\03_traffic_by_weather_main.png'
+2026-10-05 14:20:40 — INFO — __main__ — ================== Visualization Phase Completed ==================
+2026-10-05 14:27:53 — INFO — __main__ — ================== Starting Visualization Phase ==================
+2026-10-05 14:27:53 — INFO — __main__ — Successfully loaded featured dataset 'featured_traffic_data.csv' for visualization.
+2026-10-05 14:27:53 — INFO — __main__ — Successfully saved figure: 'figures\01_hourly_traffic_weekday_vs_weekend.png'
+2026-10-05 14:27:56 — INFO — __main__ — Successfully saved figure: 'figures\02_temperature_vs_traffic.png'
+2026-10-05 14:27:57 — INFO — __main__ — Successfully saved figure: 'figures\03_traffic_by_weather_main.png'
+2026-10-05 14:27:57 — INFO — __main__ — ================== Visualization Phase Completed ==================
+2026-10-05 14:29:11 — INFO — __main__ — ================== Starting Visualization Phase ==================
+2026-10-05 14:29:11 — INFO — __main__ — Successfully loaded featured dataset 'featured_traffic_data.csv' for visualization.
+2026-10-05 14:29:11 — INFO — __main__ — Successfully saved figure: 'figures\01_hourly_traffic_weekday_vs_weekend.png'
+2026-10-05 14:29:14 — INFO — __main__ — Successfully saved figure: 'figures\02_temperature_vs_traffic.png'
+2026-10-05 14:29:15 — INFO — __main__ — Successfully saved figure: 'figures\03_traffic_by_weather_main.png'
+2026-10-05 14:29:15 — INFO — __main__ — ================== Visualization Phase Completed ==================
+2026-10-05 14:37:41 — INFO — __main__ — ================== Starting Visualization Phase ==================
+2026-10-05 14:37:41 — INFO — __main__ — Successfully loaded featured dataset 'featured_traffic_data.csv' for visualization.
+2026-10-05 14:37:43 — INFO — __main__ — Successfully saved figure: 'figures\01_hourly_traffic_weekday_vs_weekend.png'
+2026-10-05 14:37:45 — INFO — __main__ — Successfully saved figure: 'figures\02_temperature_vs_traffic.png'
+2026-10-05 14:37:46 — INFO — __main__ — Successfully saved figure: 'figures\03_traffic_by_weather_main.png'
+2026-10-05 14:37:46 — INFO — __main__ — ================== Visualization Phase Completed ==================
